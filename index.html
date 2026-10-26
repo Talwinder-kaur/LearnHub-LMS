@@ -2,51 +2,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnHub - Student Account</title><style>
+    <title>LearnHub - Learning Management System</title><style>
     * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
     }
 
     body {
-        margin: 0;
         font-family: Arial, sans-serif;
-        background: #eaf1ff;
+        background: #f4f7fc;
+        color: #222;
     }
 
     header {
         background: #173b70;
         color: white;
-        text-align: center;
         padding: 20px;
-    }
-
-    .container {
-        max-width: 420px;
-        margin: 35px auto;
-        padding: 25px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px #00000018;
-    }
-
-    h2 {
         text-align: center;
-        color: #2456a6;
     }
 
-    input {
-        width: 100%;
-        padding: 13px;
-        margin: 9px 0;
-        border: 1px solid #bbb;
-        border-radius: 6px;
-        font-size: 16px;
+    nav {
+        background: #2456a6;
+        padding: 15px;
+        text-align: center;
     }
 
-    button {
-        width: 100%;
-        padding: 13px;
-        margin-top: 12px;
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+        font-weight: bold;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 60px 20px;
+        background: #e2ecff;
+    }
+
+    .hero h2 {
+        color: #173b70;
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .hero button {
+        margin-top: 20px;
+        padding: 12px 25px;
         background: #2456a6;
         color: white;
         border: none;
@@ -54,111 +62,217 @@
         font-size: 16px;
     }
 
-    .switch {
+    .courses {
+        padding: 30px 15px;
         text-align: center;
+    }
+
+    .course-card {
+        background: white;
+        padding: 22px;
+        margin: 18px auto;
+        max-width: 350px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000015;
+    }
+
+    .course-card h3 {
+        color: #2456a6;
+        margin-bottom: 10px;
+    }
+
+    .course-card p {
+        margin: 10px;
+    }
+
+    .course-card button {
+        background: #173b70;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    footer {
+        background: #173b70;
+        color: white;
+        text-align: center;
+        padding: 18px;
         margin-top: 20px;
     }
+      /* Responsive Design for Mobile */
+@media screen and (max-width: 600px) {
 
-    .switch a {
-        color: #2456a6;
-        font-weight: bold;
+    body {
+        font-size: 16px;
     }
 
-    .message {
+    header h1 {
+        font-size: 28px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .courses {
+        padding: 25px 15px;
+    }
+
+    .course-card {
+        width: 100%;
+        margin: 15px auto;
+    }
+
+    input,
+    textarea {
+        max-width: 100%;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+    footer {
+        padding: 20px 10px;
         text-align: center;
-        padding: 10px;
-        overflow-wrap: anywhere;
     }
+      }
+      nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 
-    .back {
-        text-align: center;
-        margin: 20px;
-    }
-
-    .back a {
-        color: #2456a6;
-    }
+nav a {
+    display: inline-block;
+    padding: 8px 10px;
+    margin: 0;
+    text-decoration: none;
+  }
 </style>
 
 </head><body><header>
     <h1>LearnHub</h1>
-    <p>Student Account</p>
-</header><div class="container" id="registerBox">
-    <h2>Create Account</h2><form id="registerForm">
-    <input type="text" id="name"
-           placeholder="Full Name" required>
+    <p>Your Online Learning Platform</p>
+</header>
 
-    <input type="email" id="email"
-           placeholder="Email Address" required>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#about">About</a>
+    <a href="Login.html">Login / Register</a>
+</nav>
 
-    <input type="password" id="password"
-           placeholder="Create Password"
-           minlength="6" required>
+<section class="hero" id="home">
+    <h2>Learn New Skills Online</h2>
+    <p>Explore courses, improve your knowledge,<br>
+    and build your future with LearnHub.</p>
 
-    <button type="submit">Register</button>
-</form>
+    <button onclick="showCourses()">Explore Courses</button>
+</section>
 
-<p class="switch">
-    Already registered?
-    <a href="#" id="showLogin">Login</a>
-</p>
+<section class="courses" id="courses">
+    <h2>Our Popular Courses</h2>
 
-</div><div class="container" id="loginBox" hidden>
-    <h2>Student Login</h2><form id="loginForm">
-    <input type="email" id="loginEmail"
-           placeholder="Email Address" required>
+    <div class="course-card">
+        <h3>HTML & CSS</h3>
+        <p>Learn website design from the basics.</p>
+        <p>Price: Free</p>
+        <button onclick="enroll('HTML & CSS')">Enroll Now</button>
+    </div>
 
-    <input type="password" id="loginPassword"
-           placeholder="Password" required>
+    <div class="course-card">
+        <h3>JavaScript</h3>
+        <p>Learn programming and website interactivity.</p>
+        <p>Price: Free</p>
+        <button onclick="enroll('JavaScript')">Enroll Now</button>
+    </div>
 
-    <button type="submit">Login</button>
-</form>
+    <div class="course-card">
+        <h3>Python Programming</h3>
+        <p>Start learning programming with Python.</p>
+        <p>Price: Free</p>
+        <button onclick="enroll('Python Programming')">Enroll Now</button>
+    </div>
+</section>
 
-<p class="switch">
-    New student?
-    <a href="#" id="showRegister">Create Account</a>
-</p>
+<section class="courses" id="about">
+    <h2>About LearnHub</h2>
+    <p>LearnHub is a Learning Management System
+    designed to make online education simple and accessible.</p>
+</section>
+<section id="contact" class="courses">
+    <h2>Contact Us</h2>
+    <p>Have any questions? Contact us!</p>
 
-</div><p class="message" id="message" role="status"></p><div class="back">
-    <a href="index.html">← Back to Home</a>
-</div><script>
-    const registerBox = document.getElementById("registerBox");
-    const loginBox = document.getElementById("loginBox");
-    const message = document.getElementById("message");
+    <form id="contactForm">
+        <input type="text" id="contactName"
+               placeholder="Your Name" required>
 
-    document.getElementById("showLogin").onclick = function(event) {
-        event.preventDefault();
-        registerBox.hidden = true;
-        loginBox.hidden = false;
-        message.textContent = "";
-    };
+        <br><br>
 
-    document.getElementById("showRegister").onclick = function(event) {
-        event.preventDefault();
-        loginBox.hidden = true;
-        registerBox.hidden = false;
-        message.textContent = "";
-    };
+        <input type="email" id="contactEmail"
+               placeholder="Your Email" required>
 
-    document.getElementById("registerForm").onsubmit = function(event) {
-        event.preventDefault();
+        <br><br>
 
-        const name = document.getElementById("name").value.trim();
+        <textarea id="contactMessage"
+                  placeholder="Your Message"
+                  required></textarea>
 
-        message.style.color = "green";
-        message.textContent =
-            "Registration demo completed for " + name +
-            ". Account details are not saved.";
+        <br><br>
 
-        this.reset();
-    };
+        <button type="submit">Send Message</button>
+    </form>
 
-    document.getElementById("loginForm").onsubmit = function(event) {
-        event.preventDefault();
+    <p id="contactResponse"></p>
+</section>
+<footer>
+    <p>© 2026 LearnHub | Learning Management System</p>
+</footer>
 
-        message.style.color = "#2456a6";
-        message.textContent =
-            "Demo login form is working. Real account verification is not connected.";
-    };
-</script></body>
-  </html>
+<script>
+    function showCourses() {
+        document.getElementById("courses").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    function enroll(courseName) {
+    alert(
+        "Course Selected Successfully!\n\n" +
+        "Course Name: " + courseName +
+        "\n\nThank you for choosing LearnHub!"
+    );
+    }
+  document.getElementById("contactForm").onsubmit = function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("contactName").value.trim();
+
+    document.getElementById("contactResponse").textContent =
+        "Thank you, " + name + "! Your message was received in this demo.";
+
+    document.getElementById("contactResponse").style.color = "green";
+
+    this.reset();
+};
+</script>
+
+</body>
+</html>
